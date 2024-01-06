@@ -52,11 +52,7 @@ if busca:
   
   # Exibindo as imagens
   for i in range(0,7):
-    if i%2 == 1:
+    if (i%2) == 1:
       col1.image(list_images_random[i])
     else:
-      try:
-        col2.image(list_images_random[i])
-      except:
-        col2.image(list_images_random[i])
-
+      col2.image(list_images_random[i])
