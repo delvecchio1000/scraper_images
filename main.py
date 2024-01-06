@@ -45,7 +45,7 @@ if busca:
   
   # Escolhendo aleatoriamente dez imagens (a lista contém 92)
   try:
-      list_images_random=random.sample(list_images,10)
+      list_images_random=random.sample(list_images,6)
   except:
       st.error("Digite uma palavra, ou tente outra")
       sys.exit()
