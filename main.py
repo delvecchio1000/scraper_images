@@ -55,4 +55,8 @@ if busca:
     if i%2 == 1:
       col1.image(list_images_random[i])
     else:
-      col2.image(list_images_random[i])
+      try:
+        col2.image(list_images_random[i])
+      except:
+        col2.image(list_images_random[i])
+
