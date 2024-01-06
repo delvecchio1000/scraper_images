@@ -31,10 +31,7 @@ with st.form("Busca"):
 # Criando a lógica
 
 # Ao clicar em "Busca"
-if busca == "":
-  st.error("Digite uma palavra")
-  sys.exit()
-else:
+if busca:
   list_images=[]
   page = requests.get(f"https://unsplash.com/pt-br/s/fotografias/{keyword}")
   soup = BeautifulSoup(page.content, "html.parser")
@@ -47,7 +44,11 @@ else:
     list_images.append(url)
   
   # Escolhendo aleatoriamente dez imagens (a lista contém 92)
-  list_images_random=random.sample(list_images,10)
+  try:
+      list_images_random=random.sample(list_images,10)
+  except:
+      st.error("Digite uma palavra")
+      sys.exit()
   
   # Exibindo as imagens
   for i in range(10):
@@ -55,4 +56,3 @@ else:
       col1.image(list_images_random[i])
     else:
       col2.image(list_images_random[i])
-      
