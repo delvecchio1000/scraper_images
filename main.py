@@ -51,3 +51,7 @@ if busca:
       col1.image(list_images_random[i])
     else:
       col2.image(list_images_random[i])
+
+else:
+  st.warning("Digite uma palavra")
+  
