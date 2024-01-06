@@ -18,6 +18,7 @@ import streamlit as st
 import requests
 from bs4 import BeautifulSoup
 import random
+import sys
 
 # Criando o Título
 st.markdown("<h1 style='text-align: center;'>Web Scraper</h1>", unsafe_allow_html=True)
@@ -30,6 +31,11 @@ with st.form("Busca"):
 # Criando a lógica
 
 # Ao clicar em "Busca"
+if busca == "":
+  st.warning("Digite uma palavra")
+  sys.exit()
+
+
 if busca:
   list_images=[]
   page = requests.get(f"https://unsplash.com/pt-br/s/fotografias/{keyword}")
@@ -52,6 +58,3 @@ if busca:
     else:
       col2.image(list_images_random[i])
 
-else:
-  st.warning("Digite uma palavra")
-  
