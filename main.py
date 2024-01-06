@@ -26,15 +26,15 @@ st.markdown("<h1 style='text-align: center;'>Web Scraper</h1>", unsafe_allow_htm
 # Criando o formulário
 with st.form("Busca"):
   keyword=st.text_input("Digite uma palavra")
-  if keyword == "":
-    st.error("Digite uma palavra")
-    sys.exit()
   busca=st.form_submit_button("Busca")
   
 # Criando a lógica
 
 # Ao clicar em "Busca"
-if busca:
+if busca == "":
+  st.error("Digite uma palavra")
+  sys.exit()
+else:
   list_images=[]
   page = requests.get(f"https://unsplash.com/pt-br/s/fotografias/{keyword}")
   soup = BeautifulSoup(page.content, "html.parser")
@@ -55,4 +55,4 @@ if busca:
       col1.image(list_images_random[i])
     else:
       col2.image(list_images_random[i])
-
+      
