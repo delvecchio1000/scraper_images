@@ -21,7 +21,7 @@ import random
 import sys
 
 # Criando o Título
-st.markdown("<h1 style='text-align: center;'>Web Scraper</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>À procura de imagens</h1>", unsafe_allow_html=True)
 
 # Criando o formulário
 with st.form("Busca"):
