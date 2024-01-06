@@ -12,7 +12,7 @@
 # Execute digitando no terminal "streamlit run main.py"
 # Será aberto uma janela de navegador
 # Digite uma palavra (recomenda-se em ingles) no formulário
-# Dez imagens serão exibidas, aleatoriamente
+# Seis imagens serão exibidas, aleatoriamente
 
 import streamlit as st
 import requests
