@@ -51,7 +51,7 @@ if busca:
       sys.exit()
   
   # Exibindo as imagens
-  for i in range(10):
+  for i in range(6):
     if i%2 == 1:
       col1.image(list_images_random[i])
     else:
