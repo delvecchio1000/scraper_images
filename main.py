@@ -47,7 +47,7 @@ if busca:
   try:
       list_images_random=random.sample(list_images,10)
   except:
-      st.error("Digite uma palavra")
+      st.error("Digite uma palavra, ou tente outra")
       sys.exit()
   
   # Exibindo as imagens
