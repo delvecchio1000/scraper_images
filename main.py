@@ -26,16 +26,14 @@ st.markdown("<h1 style='text-align: center;'>Web Scraper</h1>", unsafe_allow_htm
 # Criando o formulário
 with st.form("Busca"):
   keyword=st.text_input("Digite uma palavra")
+  if keyword == "":
+    st.error("Digite uma palavra")
+    sys.exit()
   busca=st.form_submit_button("Busca")
   
 # Criando a lógica
 
 # Ao clicar em "Busca"
-if busca == "":
-  st.warning("Digite uma palavra")
-  sys.exit()
-
-
 if busca:
   list_images=[]
   page = requests.get(f"https://unsplash.com/pt-br/s/fotografias/{keyword}")
