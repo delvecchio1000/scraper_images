@@ -94,4 +94,4 @@ if surpresa:
     else:
       col2.image(list_images_random[i])
 
-st.markdown(f"### {keyword}")
+# st.markdown(f"### {keyword}")
