@@ -45,7 +45,8 @@ if busca:
   # Abastecendo a lista com todas urls
   for image in images:
     url=image.find("img").get("src")
-    list_images.append(url)
+    if "premium_photo" not in url:
+      list_images.append(url)
   
   # Escolhendo aleatoriamente dez imagens (a lista contém 92)
   try:
@@ -58,5 +59,7 @@ if busca:
   for i in range(0,7):
     if (i%2) == 1:
       col1.image(list_images_random[i])
+      print(list_images_random[i])
     else:
       col2.image(list_images_random[i])
+      print(list_images_random[i])
