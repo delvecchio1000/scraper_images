@@ -47,15 +47,15 @@ if busca:
     if "/premium_photo-" not in url:
       list_images.append(url)
   
-  # Escolhendo aleatoriamente dez imagens (a lista contém 92)
+  # Escolhendo aleatoriamente seis imagens (a lista contém 92)
   try:
-      list_images_random=random.sample(list_images,7)
+      list_images_random=random.sample(list_images,6)
   except:
       st.error("Digite uma palavra, ou tente outra")
       sys.exit()
   
   # Exibindo as imagens
-  for i in range(0,7):
+  for i in range(0,6):
     if (i%2) == 1:
       col1.image(list_images_random[i])
     else:
