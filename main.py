@@ -19,7 +19,6 @@ import requests
 from bs4 import BeautifulSoup
 import random
 import sys
-from words import words
 
 # Configurando a página (Favicon e título da página)
 st.set_page_config(page_title="Buscador de imagens",page_icon=":globe_with_meridians:", layout="wide")
@@ -67,6 +66,8 @@ if busca:
 # Ao clicar em "Surpreenda-me"
 if surpresa:
   list_images=[]
+  words=['bear', 'bee', 'bird', 'camel', 'cat', 'chicken', 'cow', 'crocodile', 'dog', 'dolphin', 'elephant', 'fish', 'fox', 'frog', 'giraffe', 'goat', 'horse', 'kangaroo', 'leopard', 'lion', 'lizard', 'monkey', 'mouse', 'octopus', 'otter', 'panda', 'penguin', 'pig', 'rabbit', 'rat', 'rhinoceros', 'seal', 'snake', 'spider', 'squirrel', 'tiger', 'turtle', 'whale', 'wolf', 'zebra', 'daffodil', 'hyacinth', 'lilac', 'lily', 'orchid', 'rose', 'sunflower', 'tulip', 'violet', 'azalea', 'begonia', 'camellia', 'carnation', 'chamomile', 'daisy', 'dandelion', 'delphinium', 'gardenia', 'geranium', 'hibiscus', 'hollyhock', 'iris', 'jasmine', 'lavender', 'lily of the valley', 'lotus', 'marigold', 'morning glory', 'narcissus', 'pansy', 'peony', 'primrose', 'rosemary', 'saffron', 'sage', 'snapdragon', 'sunflower', 'violet', 'wisteria', 'zinnia', 'Chevrolet Corvette', 'Ford Mustang', 'Dodge Challenger', 'Chevrolet Camaro', 'Ford F-150', 'Chevrolet Silverado', 'Ram 1500', 'Toyota Camry', 'Honda Accord', 'Honda Civic', 'Toyota Corolla', 'Nissan Sentra', 'Mazda3', 'Hyundai Elantra', 'Kia Forte', 'Volkswagen Jetta', 'Nissan Altima', 'Toyota RAV4', 'Honda CR-V', 'Ford Explorer', 'Chevrolet Tahoe', 'Chevrolet Suburban', 'Ford Expedition', 'GMC Yukon', 'Toyota Highlander', 'Honda Pilot', 'Nissan Pathfinder', 'Hyundai Santa Fe', 'Kia Telluride', 'Volkswagen Atlas', 'Mercedes-Benz C-Class', 'BMW 3 Series', 'Audi A4', 'Lexus IS', 'Acura TLX', 'Infiniti Q50', 'Lincoln MKZ', 'Tesla Model 3', 'Tesla Model Y', 'Porsche 911', 'BMW M3', 'Audi R8', 'Mercedes-AMG C 63', 'Lexus LC 500', 'Boeing 747', 'Boeing 737', 'Boeing 787', 'Airbus A320', 'Airbus A330', 'Airbus A380', 'Cessna 172', 'Piper Cherokee', 'Diamond DA40', 'Gulfstream G650', 'Bombardier Global 7500', 'Embraer Legacy 650', 'Cessna Citation X', 'Dassault Falcon 7x', 'Beechcraft King Air 350', 'Piper M600', 'Cessna Citation Latitude', 'Embraer Praetor 600', 'Dassault Falcon 8x', 'Boeing 777', 'Airbus A350', 'Boeing 767', 'Airbus A340', 'Boeing 757', 'Airbus A319', 'Boeing 737 MAX', 'Airbus A321neo', 'Cessna Citation CJ3+', 'Piper Meridian', 'Diamond DA50', 'Gulfstream G550', 'Bombardier Global 6500', 'Embraer Legacy 500', 'Cessna Citation XLS+', 'Dassault Falcon 900LX', 'Beechcraft King Air 200', 'Piper M500', 'Cessna Citation Sovereign', 'Embraer Praetor 500', 'diamond', 'ruby', 'emerald', 'sapphire', 'topaz', 'amethyst', 'peridot', 'tourmaline', 'garnet', 'aquamarine', 'tanzanite', 'tsavorite', 'kunzite', 'heliodor', 'citrine', 'smoky quartz', 'rose quartz', 'agate', 'onyx', 'jade', 'malachite', 'jasper', 'lapis lazuli', 'turquoise', 'moonstone', 'opal', 'pearl']
+
   keyword=random.sample(words,1)
   page = requests.get(f"https://unsplash.com/pt-br/s/fotografias/{keyword}")
   soup = BeautifulSoup(page.content, "html.parser")
