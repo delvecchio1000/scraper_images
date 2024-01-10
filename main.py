@@ -36,7 +36,6 @@ with st.form("Busca"):
 # Ao clicar em "Busca"
 if busca:
   list_images=[]
-  # list_href=[]
   page = requests.get(f"https://unsplash.com/pt-br/s/fotografias/{keyword}")
   soup = BeautifulSoup(page.content, "html.parser")
   images = soup.find_all("div", class_="MorZF")
@@ -45,7 +44,7 @@ if busca:
   # Abastecendo a lista com todas urls
   for image in images:
     url=image.find("img").get("src")
-    if "premium_photo" not in url:
+    if "/premium_photo-" not in url:
       list_images.append(url)
   
   # Escolhendo aleatoriamente dez imagens (a lista contém 92)
