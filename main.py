@@ -20,7 +20,10 @@ from bs4 import BeautifulSoup
 import random
 import sys
 
-# Criando o Título
+# Configurando a página (Favicon e título da página)
+st.set_page_config(page_title="Buscador de imagens",page_icon=":globe_with_meridians:", layout="wide")
+
+# Criando o H1
 st.markdown("<h1 style='text-align: center;'>À procura de imagens</h1>", unsafe_allow_html=True)
 
 # Criando o formulário
@@ -33,6 +36,7 @@ with st.form("Busca"):
 # Ao clicar em "Busca"
 if busca:
   list_images=[]
+  # list_href=[]
   page = requests.get(f"https://unsplash.com/pt-br/s/fotografias/{keyword}")
   soup = BeautifulSoup(page.content, "html.parser")
   images = soup.find_all("div", class_="MorZF")
