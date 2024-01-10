@@ -59,7 +59,5 @@ if busca:
   for i in range(0,7):
     if (i%2) == 1:
       col1.image(list_images_random[i])
-      print(list_images_random[i])
     else:
       col2.image(list_images_random[i])
-      print(list_images_random[i])
