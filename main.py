@@ -19,6 +19,7 @@ import requests
 from bs4 import BeautifulSoup
 import random
 import sys
+from words import words
 
 # Configurando a página (Favicon e título da página)
 st.set_page_config(page_title="Buscador de imagens",page_icon=":globe_with_meridians:", layout="wide")
@@ -30,6 +31,7 @@ st.markdown("<h1 style='text-align: center;'>À procura de imagens</h1>", unsafe
 with st.form("Busca"):
   keyword=st.text_input("Digite uma palavra")
   busca=st.form_submit_button("Busca")
+  surpresa=st.form_submit_button("Surpreenda-me")
   
 # Criando a lógica
 
@@ -60,3 +62,35 @@ if busca:
       col1.image(list_images_random[i])
     else:
       col2.image(list_images_random[i])
+
+
+# Ao clicar em "Surpreenda-me"
+if surpresa:
+  list_images=[]
+  keyword=random.sample(words,1)
+  page = requests.get(f"https://unsplash.com/pt-br/s/fotografias/{keyword}")
+  soup = BeautifulSoup(page.content, "html.parser")
+  images = soup.find_all("div", class_="MorZF")
+  # Criando as colunas abaixo do formulário
+  col1,col2=st.columns(2)
+  # Abastecendo a lista com todas urls
+  for image in images:
+    url=image.find("img").get("src")
+    if "/premium_photo-" not in url:
+      list_images.append(url)
+  
+  # Escolhendo aleatoriamente seis imagens (a lista contém 92)
+  try:
+      list_images_random=random.sample(list_images,6)
+  except:
+      st.error("Digite uma palavra, ou tente outra")
+      sys.exit()
+  
+  # Exibindo as imagens
+  for i in range(0,6):
+    if (i%2) == 1:
+      col1.image(list_images_random[i])
+    else:
+      col2.image(list_images_random[i])
+
+st.markdown(f"### {keyword}")
